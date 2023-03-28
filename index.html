@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Air Monitoring - Air Quality Index</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+    <script type="text/javascript" src="/index.jsx"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css">
+
+  </head>
+  <nav>
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">Air Quality Index</a>
+      <a href="./heatindex.html">Heat Index</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </nav>
+  <body>
+    <div class="container1">
+      <h1 id="title">Air Quality Index</h1>
+      <p id="description"></p>
+    </div>
+<div class="popup">
+  <a data-fancybox="gallery" class="primary-btn" href="./graphs/AQI.png"><span>&#9888;</span>
+  </a>
+</div>
+    
+
+
+    <div class="progress-circle">
+      <div class="progress-text"><span id="airQuality"></span></div>
+      <div class="left-half-clipper">
+         <div class="first50-bar"></div>
+         <div class="value-bar"></div>
+      </div>
+   </div>
+
+    
+    <div class="gas">
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">PM1<span class="unit"> µg/m³</span></div>
+            <div class="text2"><span id="PM1-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="PM1"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar1" class="bar"></div>
+        </div>
+        
+        
+      </div>
+
+      <details>
+       <summary></summary>
+       <div class="iframe-container"><iframe class="responsive-iframe" width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1795377/charts/7?dynamic=true&results=20&title="></iframe>
+       </div><div class="img-container"><img class="responsive-img" src="./graphs/PM1.png" alt="PM graph"></div>
+      </details>
+      
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">PM2.5<span class="unit"> µg/m³</span></div>
+            <div class="text2"><span id="PM2_5-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="PM2_5"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar2" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1795377/charts/8?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/PM1.png" alt="PM graph">
+      </details>
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">PM10<span class="unit"> µg/m³</span></div>
+            <div class="text2"><span id="PM10-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="PM10"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar3" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/2066387/charts/1?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/PM1.png" alt="PM graph">
+      </details>
+
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">CO<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="CO-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="CO"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar4" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1579324/charts/2?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/CO.png" alt="graph">
+      </details>  
+
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Alcohol<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="alcohol-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="alcohol"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar5" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1579324/charts/3?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/alcohol.png" alt="graph">
+      </details>  
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">CO2<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="CO2-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="CO2"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar6" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1579324/charts/4?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/CO2.png" alt="graph">
+      </details> 
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Toluen<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="toluen-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="toluen"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar7" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1579324/charts/5?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/toluen.png" alt="graph">
+      </details> 
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">NH4<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="NH4-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="NH4"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar8" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1579324/charts/6?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/NH4.png" alt="graph">
+      </details> 
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Aceton<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="aceton-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="aceton"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar9" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1579324/charts/7?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/aceton.png" alt="graph">
+      </details> 
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">H2<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="H2-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="H2"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar10" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1579324/charts/8?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/H2.png" alt="graph">
+      </details> 
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">LPG<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="LPG-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="LPG"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar11" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1795377/charts/1?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/lpg.png" alt="graph">
+      </details> 
+
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Propane<span class="unit"> ppm</span></div>
+            <div class="text2"><span id="propane-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="propane"></p>
+        </div>
+      </div>
+      <div class="progressbar2">
+        <div class="progress">
+          <div id="bar12" class="bar"></div>
+        </div>
+      </div>
+
+      <details>
+        <summary></summary>
+        <iframe width="450" height="260" style="border: none;" src="https://thingspeak.com/channels/1795377/charts/2?dynamic=true&results=20&title="></iframe>
+        <img src="./graphs/propane.png" alt="graph">
+      </details> 
+
+    </div>
+  </body>
+</html>

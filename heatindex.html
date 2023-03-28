@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Air Monitoring - Heat Index</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+    <script type="text/javascript" src="/heatindex.jsx"></script>
+  </head>
+  <nav>
+    <div class="topnav" id="myTopnav">
+      <a href="./index.html">Air Quality Index</a>
+      <a href="#heatindex" class="active">Heat Index</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </nav>
+  <body>
+    <div class="container1">
+      <h1 id="title">Heat Index</h1>
+      <p id="description"></p>
+    </div>
+
+    <div class="progress-circle">
+      <span id="heatIndex"></span>
+      <div class="left-half-clipper">
+         <div class="first50-bar"></div>
+         <div class="value-bar"></div>
+      </div>
+   </div>
+
+    
+    <div class="gas">
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Temperature<span class="unit"> °C</span></div>
+            <div class="text2"><span id="temperature-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="temperature"></p>
+        </div>
+      </div>
+      
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Pressure<span class="unit"> hPa</span></div>
+            <div class="text2"><span id="pressure-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="pressure"></p>
+        </div>
+      </div>
+      
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Altitude<span class="unit"> m</span></div>
+            <div class="text2"><span id="altitude-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="altitude"></p>
+        </div>
+      </div>
+      
+      <div class="gas-container">
+        <div class="gas-container-container">
+          <div class="text-container">
+            <div class="text">Humidity<span class="unit"> %</span></div>
+            <div class="text2"><span id="humidity-category"></span></div>
+          </div>
+        </div>
+        <div class="gas-container-container2">
+          <p id="humidity"></p>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

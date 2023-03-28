@@ -1,0 +1,24 @@
+function calculateHeatIndex(temp, humidity) {
+  // Calculate the heat index
+  const c1 = -42.379;
+  const c2 = 2.04901523;
+  const c3 = 10.14333127;
+  const c4 = -0.22475541;
+  const c5 = -6.83783e-3;
+  const c6 = -5.481717e-2;
+  const c7 = 1.22874e-3;
+  const c8 = 8.5282e-4;
+  const c9 = -1.99e-6;
+
+  const hi = c1 + (c2 * temp) + (c3 * humidity) + (c4 * temp * humidity) + 
+    (c5 * temp * 2) + (c6 * humidity * 2) + (c7 * temp ** 2 * humidity) + 
+    (c8 * temp * humidity * 2) + (c9 * temp * 2 * humidity ** 2);
+
+  return hi;
+}
+
+// Example usage:
+const temp = 90.0; // Fahrenheit
+const humidity = 60; // Percentage
+const hi = calculateHeatIndex(temp, humidity);
+console.log(The heat index is ${hi.toFixed(1)} degrees Fahrenheit.);
